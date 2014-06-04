@@ -1,0 +1,21 @@
+﻿@Scripts.Render("~/bundles/home");
+
+@{
+    ViewBag.Title = "Potion Home";
+}
+
+<div class="jumbotron">
+    <h2>Potions Site</h2>
+    <div>
+        Current List of Potions
+    </div>
+    <div id="dvPotionList">
+        <table id="gridMain"></table><div id="pagernav"></div>
+    </div>
+    <span class="myAltRowClass allergywarning">Potions in red denote you have an allergy to it!!</span>
+    <br/>
+    <div class="potionmixbtn">
+        <p><a href="/PotionRecipie" class="btn btn-primary btn-default">Potion Mixing</a></p>
+    </div>
+</div>
+

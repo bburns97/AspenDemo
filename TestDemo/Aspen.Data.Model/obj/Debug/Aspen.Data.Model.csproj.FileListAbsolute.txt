@@ -1,0 +1,12 @@
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\bin\Debug\Aspen.Data.Model.dll.config
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\bin\Debug\Aspen.Data.Model.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\bin\Debug\Aspen.Data.Model.pdb
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\bin\Debug\Aspen.Domain.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\bin\Debug\EntityFramework.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\bin\Debug\Aspen.Domain.pdb
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\bin\Debug\EntityFramework.xml
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\obj\Debug\Aspen.Data.Model.csprojResolveAssemblyReference.cache
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\obj\Debug\Aspen.Data.Model.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Data.Model\obj\Debug\Aspen.Data.Model.pdb

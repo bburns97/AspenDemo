@@ -1,0 +1,85 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.myAltRowClass {
+    color: Red;
+}
+
+.potionrecipieallergy {
+    height: 35px;
+}
+
+.potionmixbtn {
+    float: right;
+    margin-right: 5.8em;
+}
+
+.allergywarning {
+    font-size:  .8em;
+}
+
+.draghere {
+    border: lightslategrey;
+}
+
+
+#divPotionMixMain {
+    position: relative;
+    height: 350px;
+    margin-bottom: 15px;
+    
+}
+#divPotions {
+    float: left;
+}
+#divAddPotions {
+    float: left;
+    border: 1px solid lightslategray;
+    width: 175px;
+}
+
+#divMood {
+      float: left;
+    width: 150px;
+}
+#divMixResult {
+    float: left;
+}
+
+#divPotionMixSecondary {
+     position: relative;
+    height: 110px;
+}
+.spacer {
+    height: 50px;
+}
+
+#potionList, #sortable2 {
+     list-style-type: none; 
+     margin: 0; 
+     padding: 0 0 2.5em; 
+     float: left; 
+     margin-right: 10px;
+}
+
+#potionList li, #sortable2 li {
+     margin: 0 5px 5px 5px; 
+     padding: 5px; 
+     font-size: 1.2em; 
+     width: 120px;
+}

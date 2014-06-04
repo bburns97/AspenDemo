@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AspenDemoModelStoreContainer" CdmEntityContainer="AspenModel">
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="AspenDemoModel.Color">
+        <MappingFragment StoreEntitySet="tbColor">
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Effects">
+      <EntityTypeMapping TypeName="AspenDemoModel.Effect">
+        <MappingFragment StoreEntitySet="tbEffect">
+          <ScalarProperty Name="EffectID" ColumnName="EffectID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Moods">
+      <EntityTypeMapping TypeName="AspenDemoModel.Mood">
+        <MappingFragment StoreEntitySet="tbMood">
+          <ScalarProperty Name="MoodID" ColumnName="MoodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PotionRecipes">
+      <EntityTypeMapping TypeName="AspenDemoModel.PotionRecipes">
+        <MappingFragment StoreEntitySet="tbPotionRecipies">
+          <ScalarProperty Name="RecipieID" ColumnName="RecipieID" />
+          <ScalarProperty Name="Potion1" ColumnName="Potion1" />
+          <ScalarProperty Name="Potion2" ColumnName="Potion2" />
+          <ScalarProperty Name="MoodID" ColumnName="MoodID" />
+          <ScalarProperty Name="EffectID" ColumnName="EffectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Potions">
+      <EntityTypeMapping TypeName="AspenDemoModel.Potions">
+        <MappingFragment StoreEntitySet="tbPotions">
+          <ScalarProperty Name="PoitionID" ColumnName="PoitionID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+          <ScalarProperty Name="EffectID" ColumnName="EffectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

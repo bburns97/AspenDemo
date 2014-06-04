@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AspenDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbColor">
+          <Key>
+            <PropertyRef Name="ColorID" />
+          </Key>
+          <Property Name="ColorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbEffect">
+          <Key>
+            <PropertyRef Name="EffectID" />
+          </Key>
+          <Property Name="EffectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbMood">
+          <Key>
+            <PropertyRef Name="MoodID" />
+          </Key>
+          <Property Name="MoodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbPotionRecipies">
+          <Key>
+            <PropertyRef Name="RecipieID" />
+          </Key>
+          <Property Name="RecipieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MoodID" Type="int" Nullable="false" />
+          <Property Name="EffectID" Type="int" Nullable="false" />
+          <Property Name="PotionRecipieJSON" Type="nvarchar" MaxLength="1000" />
+          <Property Name="PotionRecipieIngredientList" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbPotions">
+          <Key>
+            <PropertyRef Name="PotionID" />
+          </Key>
+          <Property Name="PotionID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="ColorID" Type="int" Nullable="false" />
+          <Property Name="EffectID" Type="int" Nullable="false" />
+          <Property Name="Allergy" Type="bit" />
+        </EntityType>
+        <Association Name="FK_tbPotionRecipies_tbEffect">
+          <End Role="tbEffect" Type="Self.tbEffect" Multiplicity="1" />
+          <End Role="tbPotionRecipies" Type="Self.tbPotionRecipies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEffect">
+              <PropertyRef Name="EffectID" />
+            </Principal>
+            <Dependent Role="tbPotionRecipies">
+              <PropertyRef Name="EffectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPotionRecipies_tbMood">
+          <End Role="tbMood" Type="Self.tbMood" Multiplicity="1" />
+          <End Role="tbPotionRecipies" Type="Self.tbPotionRecipies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMood">
+              <PropertyRef Name="MoodID" />
+            </Principal>
+            <Dependent Role="tbPotionRecipies">
+              <PropertyRef Name="MoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPotions_tbColor">
+          <End Role="tbColor" Type="Self.tbColor" Multiplicity="1" />
+          <End Role="tbPotions" Type="Self.tbPotions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbColor">
+              <PropertyRef Name="ColorID" />
+            </Principal>
+            <Dependent Role="tbPotions">
+              <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPotions_tbEffect">
+          <End Role="tbEffect" Type="Self.tbEffect" Multiplicity="1" />
+          <End Role="tbPotions" Type="Self.tbPotions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEffect">
+              <PropertyRef Name="EffectID" />
+            </Principal>
+            <Dependent Role="tbPotions">
+              <PropertyRef Name="EffectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AspenDemoModelStoreContainer">
+          <EntitySet Name="tbColor" EntityType="Self.tbColor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbEffect" EntityType="Self.tbEffect" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbMood" EntityType="Self.tbMood" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPotionRecipies" EntityType="Self.tbPotionRecipies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPotions" EntityType="Self.tbPotions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbPotionRecipies_tbEffect" Association="Self.FK_tbPotionRecipies_tbEffect">
+            <End Role="tbEffect" EntitySet="tbEffect" />
+            <End Role="tbPotionRecipies" EntitySet="tbPotionRecipies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPotionRecipies_tbMood" Association="Self.FK_tbPotionRecipies_tbMood">
+            <End Role="tbMood" EntitySet="tbMood" />
+            <End Role="tbPotionRecipies" EntitySet="tbPotionRecipies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPotions_tbColor" Association="Self.FK_tbPotions_tbColor">
+            <End Role="tbColor" EntitySet="tbColor" />
+            <End Role="tbPotions" EntitySet="tbPotions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPotions_tbEffect" Association="Self.FK_tbPotions_tbEffect">
+            <End Role="tbEffect" EntitySet="tbEffect" />
+            <End Role="tbPotions" EntitySet="tbPotions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AspenDemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ColorID" />
+          </Key>
+          <Property Name="ColorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="navPotions" Relationship="Self.FK_tbPotions_tbColor" FromRole="tbColor" ToRole="tbPotions" />
+        </EntityType>
+        <EntityType Name="Effect">
+          <Key>
+            <PropertyRef Name="EffectID" />
+          </Key>
+          <Property Name="EffectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="navPotionRecipies" Relationship="Self.FK_tbPotionRecipies_tbEffect" FromRole="tbEffect" ToRole="tbPotionRecipies" />
+          <NavigationProperty Name="navPotions" Relationship="Self.FK_tbPotions_tbEffect" FromRole="tbEffect" ToRole="tbPotions" />
+        </EntityType>
+        <EntityType Name="Mood">
+          <Key>
+            <PropertyRef Name="MoodID" />
+          </Key>
+          <Property Name="MoodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="navPotionRecipies" Relationship="Self.FK_tbPotionRecipies_tbMood" FromRole="tbMood" ToRole="tbPotionRecipies" />
+        </EntityType>
+        <EntityType Name="PotionRecipes">
+          <Key>
+            <PropertyRef Name="RecipieID" />
+          </Key>
+          <Property Name="RecipieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MoodID" Type="Int32" Nullable="false" />
+          <Property Name="EffectID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="navEffect" Relationship="Self.FK_tbPotionRecipies_tbEffect" FromRole="tbPotionRecipies" ToRole="tbEffect" />
+          <NavigationProperty Name="navMood" Relationship="Self.FK_tbPotionRecipies_tbMood" FromRole="tbPotionRecipies" ToRole="tbMood" />
+          <Property Name="PotionRecipieJSON" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="PotionRecipieIngredientList" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          </EntityType>
+        <EntityType Name="Potions">
+          <Key>
+            <PropertyRef Name="PotionID" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ColorID" Type="Int32" Nullable="false" />
+          <Property Name="EffectID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="navColor" Relationship="Self.FK_tbPotions_tbColor" FromRole="tbPotions" ToRole="tbColor" />
+          <NavigationProperty Name="navEffect" Relationship="Self.FK_tbPotions_tbEffect" FromRole="tbPotions" ToRole="tbEffect" />
+          <Property Name="PotionID" Type="Int32" Nullable="false" />
+          <Property Name="Allergy" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_tbPotions_tbColor">
+          <End Role="tbColor" Type="AspenDemoModel.Color" Multiplicity="1" />
+          <End Role="tbPotions" Type="AspenDemoModel.Potions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbColor">
+              <PropertyRef Name="ColorID" />
+            </Principal>
+            <Dependent Role="tbPotions">
+              <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPotionRecipies_tbEffect">
+          <End Role="tbEffect" Type="AspenDemoModel.Effect" Multiplicity="1" />
+          <End Role="tbPotionRecipies" Type="AspenDemoModel.PotionRecipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEffect">
+              <PropertyRef Name="EffectID" />
+            </Principal>
+            <Dependent Role="tbPotionRecipies">
+              <PropertyRef Name="EffectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPotions_tbEffect">
+          <End Role="tbEffect" Type="AspenDemoModel.Effect" Multiplicity="1" />
+          <End Role="tbPotions" Type="AspenDemoModel.Potions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEffect">
+              <PropertyRef Name="EffectID" />
+            </Principal>
+            <Dependent Role="tbPotions">
+              <PropertyRef Name="EffectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPotionRecipies_tbMood">
+          <End Role="tbMood" Type="AspenDemoModel.Mood" Multiplicity="1" />
+          <End Role="tbPotionRecipies" Type="AspenDemoModel.PotionRecipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMood">
+              <PropertyRef Name="MoodID" />
+            </Principal>
+            <Dependent Role="tbPotionRecipies">
+              <PropertyRef Name="MoodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AspenModel" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Colors" EntityType="AspenDemoModel.Color" />
+          <EntitySet Name="Effects" EntityType="AspenDemoModel.Effect" />
+          <EntitySet Name="Moods" EntityType="AspenDemoModel.Mood" />
+          <EntitySet Name="PotionRecipes" EntityType="AspenDemoModel.PotionRecipes" />
+          <EntitySet Name="Potions" EntityType="AspenDemoModel.Potions" />
+          <AssociationSet Name="FK_tbPotions_tbColor" Association="Self.FK_tbPotions_tbColor">
+            <End Role="tbColor" EntitySet="Colors" />
+            <End Role="tbPotions" EntitySet="Potions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPotionRecipies_tbEffect" Association="Self.FK_tbPotionRecipies_tbEffect">
+            <End Role="tbEffect" EntitySet="Effects" />
+            <End Role="tbPotionRecipies" EntitySet="PotionRecipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPotions_tbEffect" Association="Self.FK_tbPotions_tbEffect">
+            <End Role="tbEffect" EntitySet="Effects" />
+            <End Role="tbPotions" EntitySet="Potions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPotionRecipies_tbMood" Association="Self.FK_tbPotionRecipies_tbMood">
+            <End Role="tbMood" EntitySet="Moods" />
+            <End Role="tbPotionRecipies" EntitySet="PotionRecipes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AspenDemoModelStoreContainer" CdmEntityContainer="AspenModel">
+          <EntitySetMapping Name="Colors">
+            <EntityTypeMapping TypeName="AspenDemoModel.Color">
+              <MappingFragment StoreEntitySet="tbColor">
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Effects">
+            <EntityTypeMapping TypeName="AspenDemoModel.Effect">
+              <MappingFragment StoreEntitySet="tbEffect">
+                <ScalarProperty Name="EffectID" ColumnName="EffectID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moods">
+            <EntityTypeMapping TypeName="AspenDemoModel.Mood">
+              <MappingFragment StoreEntitySet="tbMood">
+                <ScalarProperty Name="MoodID" ColumnName="MoodID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PotionRecipes">
+            <EntityTypeMapping TypeName="AspenDemoModel.PotionRecipes">
+              <MappingFragment StoreEntitySet="tbPotionRecipies">
+                <ScalarProperty Name="PotionRecipieIngredientList" ColumnName="PotionRecipieIngredientList" />
+                <ScalarProperty Name="PotionRecipieJSON" ColumnName="PotionRecipieJSON" />
+                <ScalarProperty Name="RecipieID" ColumnName="RecipieID" />
+                <ScalarProperty Name="MoodID" ColumnName="MoodID" />
+                <ScalarProperty Name="EffectID" ColumnName="EffectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Potions">
+            <EntityTypeMapping TypeName="AspenDemoModel.Potions">
+              <MappingFragment StoreEntitySet="tbPotions">
+                <ScalarProperty Name="Allergy" ColumnName="Allergy" />
+                <ScalarProperty Name="PotionID" ColumnName="PotionID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="EffectID" ColumnName="EffectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="e8393a3c215243d9b40c570dca670501" Name="Diagram1">
+        <EntityTypeShape EntityType="AspenDemoModel.Color" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AspenDemoModel.Effect" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AspenDemoModel.Mood" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AspenDemoModel.PotionRecipes" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AspenDemoModel.Potions" Width="3.375" PointX="6" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="AspenDemoModel.FK_tbPotions_tbColor" ManuallyRouted="false" />
+        <AssociationConnector Association="AspenDemoModel.FK_tbPotionRecipies_tbEffect" ManuallyRouted="false" />
+        <AssociationConnector Association="AspenDemoModel.FK_tbPotions_tbEffect" ManuallyRouted="false" />
+        <AssociationConnector Association="AspenDemoModel.FK_tbPotionRecipies_tbMood" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,34 @@
+﻿@Scripts.Render("~/bundles/potionrecipie");
+
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Potion Recipies</h2>
+<div class="myAltRowClass potionrecipieallergy">
+    *Red denotes you are allergic to that potion!
+</div>
+<div id="divPotionMixMain">
+    <div id="divPotions">
+        <ul id="potionList" class="connectedSortable"></ul>
+    </div>
+    <div id="divAddPotions">
+        <div>Drag & Mix Potions here</div>
+        <ul id="sortable2" class="connectedSortable draghere" style="min-width: 100px; min-height: 200px;"></ul>
+    </div> 
+    <br/>
+</div>
+<div id="divPotionMixSecondary">
+    <div id="divMood">
+        <div>Select Mood</div>
+        <select id="slcMood"></select>
+    </div>
+    <div id=divMixResult>
+        <div id="spnresult"></div>
+    </div>
+</div>
+
+

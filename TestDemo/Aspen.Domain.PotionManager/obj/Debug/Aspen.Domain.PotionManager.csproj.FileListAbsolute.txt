@@ -1,0 +1,12 @@
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\bin\Debug\Aspen.Domain.PotionManager.dll.config
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\bin\Debug\Aspen.Domain.PotionManager.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\bin\Debug\Aspen.Domain.PotionManager.pdb
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\bin\Debug\Aspen.Data.Model.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\bin\Debug\Aspen.Domain.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\bin\Debug\EntityFramework.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\bin\Debug\Aspen.Data.Model.pdb
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\bin\Debug\Aspen.Domain.pdb
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\bin\Debug\EntityFramework.xml
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\obj\Debug\Aspen.Domain.PotionManager.csprojResolveAssemblyReference.cache
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\obj\Debug\Aspen.Domain.PotionManager.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain.PotionManager\obj\Debug\Aspen.Domain.PotionManager.pdb

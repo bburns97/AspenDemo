@@ -1,0 +1,6 @@
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain\bin\Debug\Aspen.Domain.dll.config
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain\bin\Debug\Aspen.Domain.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain\bin\Debug\Aspen.Domain.pdb
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain\obj\Debug\Aspen.Domain.dll
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain\obj\Debug\Aspen.Domain.pdb
+C:\Users\bryan.burns\documents\visual studio 2013\Projects\TestDemo\Aspen.Domain\obj\Debug\Aspen.Domain.csprojResolveAssemblyReference.cache
